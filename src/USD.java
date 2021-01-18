@@ -1,11 +1,13 @@
-public class USD implements Comparable<USD>{
+import java.text.NumberFormat;
+
+public class USD implements Comparable<USD> {
 
     private int dollars;
     private int cents;
     private String name;
 
     public USD() {
-
+        this(0, 0, "USD");
     }
 
     public USD(int dollars, int cents, String name) {
@@ -32,24 +34,23 @@ public class USD implements Comparable<USD>{
 
     public void sub(USD curr) {
         if (!isSameCurrency(curr)) {
-           return;
+            return;
         }
-
+        if (compareTo(curr) < 0) {
+            return;
+        }
         int myTotal = getTotalInCents();
         int currTotal = curr.getTotalInCents();
-        if (myTotal >= currTotal) {
-            int newVal = myTotal - currTotal;
-            setCents(newVal % 100);
-            setDollars(newVal / 100);
-        }
+        int newVal = myTotal - currTotal;
+        setCents(newVal % 100);
+        setDollars(newVal / 100);
+
     }
 
 
     public boolean equals(USD curr) {
         return isSameCurrency(curr) && getDollars() == curr.getDollars() && getCents() == curr.getCents();
     }
-
-
 
 
     public int getDollars() {
@@ -76,29 +77,41 @@ public class USD implements Comparable<USD>{
         this.name = name;
     }
 
-
+    public void printInfo() {
+        System.out.println(getName() + ":  " + this);
+    }
 
 
     protected int getTotalInCents() {
         return getCents() + getDollars() * 100;
     }
-    protected boolean isSameCurrency(USD curr){
+
+    protected double getTotalInDollars(){
+        return getDollars() + getCents()/100.0;
+    }
+
+    protected boolean isSameCurrency(USD curr) {
         return getName().equals(curr.getName());
     }
 
     @Override
-    public int compareTo(USD curr) {
-        if (!isSameCurrency(curr) || getTotalInCents() < curr.getTotalInCents()) {
+    public int compareTo(USD curr)  {
+        if(!isSameCurrency(curr)){
+            return -2;
+        }
+        if (getTotalInCents() < curr.getTotalInCents()) {
             return -1;
         }
-        if(getTotalInCents() > curr.getTotalInCents()){
+        if (getTotalInCents() > curr.getTotalInCents()) {
             return 1;
         }
         return 0;
     }
 
+
     @Override
     public String toString() {
-        return null;
+        return NumberFormat.getCurrencyInstance().format(getTotalInDollars());
+
     }
 }
