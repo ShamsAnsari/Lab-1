@@ -78,7 +78,7 @@ public class USD implements Comparable<USD> {
     }
 
     public void printInfo() {
-        System.out.println(getName() + ":  " + this);
+        System.out.println("\t"+ getName() + ":  " + this);
     }
 
 
