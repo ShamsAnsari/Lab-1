@@ -23,7 +23,7 @@ public class USD implements Comparable<USD> {
     }
 
     public void add(USD curr) {
-        if (!isSameCurrency(curr)) {
+        if (!isSameCurrency(curr) || curr.getTotalInCents() < 0) {
             return;
         }
         int cents = (getCents() + curr.getCents()) % 100;
@@ -36,7 +36,7 @@ public class USD implements Comparable<USD> {
         if (!isSameCurrency(curr)) {
             return;
         }
-        if (compareTo(curr) < 0) {
+        if (compareTo(curr) < 0 || curr.getTotalInCents() < 0) {
             return;
         }
         int myTotal = getTotalInCents();
