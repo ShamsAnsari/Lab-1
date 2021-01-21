@@ -8,7 +8,7 @@ public class C2D extends USD{
     }
     public C2D(int dollars, int cents, String name, double convFactor){
         super(dollars, cents, name);
-        this.convFactor = convFactor;
+        setConvFactor(convFactor);
     }
 
     public C2D convertToC2D(USD usd){
