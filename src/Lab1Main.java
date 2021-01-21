@@ -68,7 +68,8 @@ public class Lab1Main {
 
                     //Get withdraw amount
                     System.out.print("Enter amount (Ex: $5.00): $");
-                    double val = scan.nextDouble();
+                    float val = scan.nextFloat(); //THE HAS TO BE A FLOAT! double causes inaccuracy
+                                                  //Ex: val = 19.99 then val*100%100 = .98 and not .99
 
                     //Subtract from wallet
                     if (input == 1) {
@@ -89,14 +90,15 @@ public class Lab1Main {
 
                     //Get deposit amount
                     System.out.print("Enter amount (Ex: $5.00): $");
-                    val = scan.nextDouble();
+                    val = scan.nextFloat();
 
                     //Add amount to wallet
                     if (input == 1) {
-                        wallet.add(new USD((int) val, (int) (val * 100 % 100), "USD"));
+                        wallet.add(new USD((int) val, (int) (val * 100.0 % 100.0), "USD"));
                     } else if (input == 2) {
                         wallet.add(new C2D((int) val, (int) (val * 100 % 100), "C2D", 1.36));
                     }
+
 
                     System.out.println("**No amount will be added if there are any irregularities**");
                     printDash();
@@ -109,7 +111,7 @@ public class Lab1Main {
 
                     //Get amount to compare
                     System.out.print("Enter amount (Ex: $5.00): $");
-                    val = scan.nextDouble();
+                    val = scan.nextFloat();
 
                     //Create money
                     USD money = null;

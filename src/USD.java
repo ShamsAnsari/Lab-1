@@ -23,8 +23,9 @@ public class USD implements Comparable<USD> {
      * @param name name of currency
      */
     public USD(int dollars, int cents, String name) {
-        addDollars(dollars);
-        addCents(cents);
+
+        setDollars(dollars);
+        setCents(cents);
         setName(name);
     }
 
@@ -111,6 +112,7 @@ public class USD implements Comparable<USD> {
      * Ex: "USD: $5.49"
      */
     public void printInfo() {
+
         System.out.println("\t"+ getName() + ":  " + this);
     }
 
@@ -188,6 +190,7 @@ public class USD implements Comparable<USD> {
      */
     @Override
     public String toString() {
+
         return NumberFormat.getCurrencyInstance().format(getTotalInDollars());
 
     }
