@@ -1,3 +1,11 @@
+/**
+ *
+ * Lab 1
+ * @Author Shams ansari
+ * @Purpose To learn about Classes, Inheritance and Polymorphism
+ * CIS 22C.  Prof.Goel
+ */
+
 import java.util.Scanner;
 
 public class Lab1Main {
@@ -41,12 +49,14 @@ public class Lab1Main {
      *
      * @param args
      */
+
     public static void main(String[] args) {
 
         Wallet wallet = new Wallet();
 
         boolean exit = false;
         Scanner scan = new Scanner(System.in);
+
 
         printWelcome();
         while (!exit) {
@@ -149,6 +159,11 @@ public class Lab1Main {
         }
 
     }
+
+
+
+
+
 
     /**
      * Prints welcome banner

@@ -1,3 +1,12 @@
+/**
+ *
+ * Lab 1
+ * @Author Shams ansari
+ * @Purpose To learn about Classes, Inheritance and Polymorphism
+ * CIS 22C.  Prof.Goel
+ */
+
+
 import java.text.NumberFormat;
 
 /**

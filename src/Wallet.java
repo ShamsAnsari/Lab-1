@@ -1,12 +1,21 @@
-import java.util.ArrayList;
+/**
+ *
+ * Lab 1
+ * @Author Shams ansari
+ * @Purpose To learn about Classes, Inheritance and Polymorphism
+ * CIS 22C.  Prof.Goel
+ */
+
+
+
 
 public class Wallet {
-    private ArrayList<USD> currencies;
+    private USD[] currencies;
 
     public Wallet(){
-        currencies = new ArrayList<>(2);
-        currencies.add(new USD());
-        currencies.add(new C2D());
+        currencies = new USD[2];
+        currencies[0] = new USD();
+        currencies[1] = new C2D();
 
     }
 
